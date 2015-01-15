@@ -11,8 +11,8 @@ apt-get install -y make curl git
 
 #####################
 # Install nginx
-echo Installing NGIX
-apt-get install -y nginx
+echo Installing NODEJS
+apt-get install -y nodejs
 
 #####################
 # Install RabbitMQ
