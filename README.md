@@ -1,5 +1,6 @@
-# vagrant-rabbitmq-cluster
-a vagrant virtual machine to run rabbitmq cluster on asingle server
+# vagrant-microservice
+
+a vagrant virtual machine to run rabbitmq cluster on a single server hosting node.js micro-services
 
 ## Run in Vagrant Virtual Machine
 
@@ -12,14 +13,12 @@ a vagrant virtual machine to run rabbitmq cluster on asingle server
 
   Browse to http://localhost:15672
 
-    RABBITMQ_NODE_PORT=5673 RABBITMQ_SERVER_START_ARGS="-rabbitmq_management listener [{port,15673}]" RABBITMQ_NODENAME=hare rabbitmq-server -detached
-    rabbitmqctl -n hare status
-    rabbitmqctl -n hare stop_app
-    rabbitmqctl -n hare reset
-    rabbitmqctl -n hare join_cluster rabbit@`hostname -s`
-    rabbitmqctl -n hare change_cluster_node_type disc
-    rabbitmqctl -n hare start_app
-    rabbitmqctl cluster_status
+## Under the hood
+
+### Clustering the RabbitMQ
+
+### NodeJS Services
+
 
 ## References
 [https://www.rabbitmq.com/clustering.html](https://www.rabbitmq.com/clustering.html)

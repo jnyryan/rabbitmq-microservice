@@ -2,12 +2,21 @@
 
 ####################
 # Prerequisites
+# add apt-get-repository
+apt-get install -y software-properties-common python-software-properties
+add-apt-repository ppa:chris-lea/node.js
+
 apt-get update
 apt-get install -y make curl git
 
 #####################
-# Install RabbitMQ
+# Install nginx
+echo Installing NGIX
+apt-get install -y nginx
 
+#####################
+# Install RabbitMQ
+echo Installing RabbitMQ
 cp /vagrant/etc/rabbitmq-signing-key-public.asc /tmp/rabbitmq-signing-key-public.asc
 apt-key add /tmp/rabbitmq-signing-key-public.asc
 
@@ -21,6 +30,9 @@ echo "[{rabbit, [{loopback_users, []}]}]." > /etc/rabbitmq/rabbitmq.config
 
 /etc/init.d/rabbitmq-server restart
 
+#####################
+# Configure RabbitMQ Cluster
+echo Configuring RabbitMQ Cluster
 
 RABBITMQ_NODE_PORT=5673 RABBITMQ_SERVER_START_ARGS="-rabbitmq_management listener [{port,15673}]" RABBITMQ_NODENAME=rabbitnode2 rabbitmq-server -detached
 rabbitmqctl -n rabbitnode2 status
