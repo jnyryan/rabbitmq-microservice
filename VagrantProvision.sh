@@ -21,11 +21,28 @@ echo "[{rabbit, [{loopback_users, []}]}]." > /etc/rabbitmq/rabbitmq.config
 
 /etc/init.d/rabbitmq-server restart
 
-exit
 
-RABBITMQ_NODE_PORT=5672 RABBITMQ_SERVER_START_ARGS="-rabbitmq_management listener [{port,15672}]" RABBITMQ_NODENAME=rabbitking rabbitmq-server -detached
-RABBITMQ_NODE_PORT=5673 RABBITMQ_SERVER_START_ARGS="-rabbitmq_management listener [{port,15673}]" RABBITMQ_NODENAME=rabbitpawn rabbitmq-server -detached
+RABBITMQ_NODE_PORT=5673 RABBITMQ_SERVER_START_ARGS="-rabbitmq_management listener [{port,15673}]" RABBITMQ_NODENAME=rabbitnode2 rabbitmq-server -detached
+rabbitmqctl -n rabbitnode2 status
+rabbitmqctl -n rabbitnode2 stop_app
+rabbitmqctl -n rabbitnode2 reset
+rabbitmqctl -n rabbitnode2 join_cluster rabbit@`hostname -s`
+rabbitmqctl -n rabbitnode2 change_cluster_node_type disc
+rabbitmqctl -n rabbitnode2 start_app
 
-rabbitmqctl -n rabbitpawn stop_app
-rabbitmqctl -n rabbitpawn join_cluster rabbitking@`hostname -s`
-rabbitmqctl -n rabbitpawn start_app
+RABBITMQ_NODE_PORT=5674 RABBITMQ_SERVER_START_ARGS="-rabbitmq_management listener [{port,15674}]" RABBITMQ_NODENAME=rabbitnode3 rabbitmq-server -detached
+rabbitmqctl -n rabbitnode3 status
+rabbitmqctl -n rabbitnode3 stop_app
+rabbitmqctl -n rabbitnode3 reset
+rabbitmqctl -n rabbitnode3 join_cluster rabbit@`hostname -s`
+rabbitmqctl -n rabbitnode3 change_cluster_node_type ram
+rabbitmqctl -n rabbitnode3 start_app
+
+RABBITMQ_NODE_PORT=5675 RABBITMQ_SERVER_START_ARGS="-rabbitmq_management listener [{port,15675}]" RABBITMQ_NODENAME=rabbitnode4 rabbitmq-server -detached
+rabbitmqctl -n rabbitnode4 status
+rabbitmqctl -n rabbitnode4 stop_app
+rabbitmqctl -n rabbitnode4 reset
+rabbitmqctl -n rabbitnode4 join_cluster rabbit@`hostname -s`
+rabbitmqctl -n rabbitnode4 change_cluster_node_type ram
+rabbitmqctl -n rabbitnode4 start_app
+rabbitmqctl cluster_status
