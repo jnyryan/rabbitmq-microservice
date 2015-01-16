@@ -1,0 +1,24 @@
+{
+  "name": "vagrant-microservice",
+  "version": "0.0.0",
+  "description": "proof of concept micro-service for a rabbitmq cluster ",
+  "main": "index.js",
+  "scripts": {
+    "start": "bash ./web/etc/start.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jnyryan/vagrant-rabbitmq-cluster.git"
+  },
+  "author": "John Ryan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jnyryan/vagrant-rabbitmq-cluster/issues"
+  },
+  "homepage": "https://github.com/jnyryan/vagrant-rabbitmq-cluster",
+  "dependencies": {
+    "cron": "^1.0.6",
+    "easy-amqp": "^0.1.3"
+  }
+}

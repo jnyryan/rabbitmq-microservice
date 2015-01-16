@@ -24,3 +24,5 @@ a vagrant virtual machine to run rabbitmq cluster on a single server hosting nod
 [https://www.rabbitmq.com/clustering.html](https://www.rabbitmq.com/clustering.html)
 
 [https://bunnyamqp.wordpress.com/2012/12/13/rabbitmq-create-a-cluster-on-a-single-machine/](https://bunnyamqp.wordpress.com/2012/12/13/rabbitmq-create-a-cluster-on-a-single-machine/)
+
+[https://www.npmjs.com/package/easy-amqp](https://www.npmjs.com/package/easy-amqp)
