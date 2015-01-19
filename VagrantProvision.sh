@@ -8,11 +8,28 @@ add-apt-repository ppa:chris-lea/node.js
 
 apt-get update
 apt-get install -y make curl git
+#apt-get install -y  python-pip tcl8.5
 
 #####################
-# Install nginx
+# Install PYTHON Dependencies
+#echo Installing PYTHON Dependencies
+#pip install pika
+
+#####################
+# Install NODEJS
 echo Installing NODEJS
-apt-get install -y nodejs
+#apt-get install -y nodejs
+#npm install forever -g
+
+#####################
+# Install REDIS
+#echo Installing REDIS
+#wget http://download.redis.io/redis-stable.tar.gz
+#tar xvzf redis-stable.tar.gz
+#cd redis-stable
+#make
+#make test
+
 
 #####################
 # Install RabbitMQ

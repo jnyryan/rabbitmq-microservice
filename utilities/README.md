@@ -15,5 +15,5 @@ pip install pika
 ## Usage
 
 ```bash
-python bulk_insert.py "routing-key" "my message"
+python bulk_insert.py 10 "routing-key" "my message"
 ```

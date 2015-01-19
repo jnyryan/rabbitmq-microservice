@@ -61,3 +61,5 @@ python bulk_insert.py "routing-key" "my message"
 [https://bunnyamqp.wordpress.com/2012/12/13/rabbitmq-create-a-cluster-on-a-single-machine/](https://bunnyamqp.wordpress.com/2012/12/13/rabbitmq-create-a-cluster-on-a-single-machine/)
 
 [https://www.npmjs.com/package/easy-amqp](https://www.npmjs.com/package/easy-amqp)
+
+[http://karlgrz.com/rabbitmq-highly-available-queues-and-clustering-using-amazon-ec2/](http://karlgrz.com/rabbitmq-highly-available-queues-and-clustering-using-amazon-ec2/)
