@@ -23,6 +23,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 15673, host: 15673#, auto_correct: true
   config.vm.network :forwarded_port, guest: 15674, host: 15674#, auto_correct: true
   config.vm.network :forwarded_port, guest: 15675, host: 15675#, auto_correct: true
+  config.vm.network :forwarded_port, guest: 25672, host: 15672#, auto_correct: true
+  config.vm.network :forwarded_port, guest: 25673, host: 15673#, auto_correct: true
+  config.vm.network :forwarded_port, guest: 25674, host: 15674#, auto_correct: true
+  config.vm.network :forwarded_port, guest: 25675, host: 15675#, auto_correct: true
+
+  config.vm.network :forwarded_port, guest: 55672, host: 55672
+
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.

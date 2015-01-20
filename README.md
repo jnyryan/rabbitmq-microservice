@@ -25,7 +25,11 @@ Note: This is all on Ubuntu Linux, but the principle is the same on windows/osx
 
 ### Server Setup
 
-TBD
+Ensure you have the following installed
+- [Python](https://www.python.org/downloads/)
+- [PIP](https://pip.pypa.io/en/latest/installing.html)
+- [RabbitMQ]
+- [HAProxy] 
 
 ### Clustering the RabbitMQ
 
@@ -39,6 +43,16 @@ rabbitmqctl -n rabbitnode2 reset
 rabbitmqctl -n rabbitnode2 join_cluster rabbit@`hostname -s`
 rabbitmqctl -n rabbitnode2 change_cluster_node_type disc
 rabbitmqctl -n rabbitnode2 start_app
+```
+
+Set the HA Policy
+```bash
+rabbitmqctl set_policy ha-all "" '{"ha-mode":"all","ha-sync-mode":"automatic"}'
+```
+
+Test Messages on the Queues
+```
+sudo rabbitmqctl -n rabbitnode2 list_queues
 ```
 
 ### NodeJS Services

@@ -4,7 +4,8 @@
 # Prerequisites
 # add apt-get-repository
 apt-get install -y software-properties-common python-software-properties
-add-apt-repository ppa:chris-lea/node.js
+add-apt-repository -y ppa:chris-lea/node.js
+add-apt-repository -y ppa:vbernat/haproxy-1.5
 
 apt-get update
 apt-get install -y make curl git
@@ -20,6 +21,13 @@ apt-get install -y make curl git
 echo Installing NODEJS
 #apt-get install -y nodejs
 #npm install forever -g
+
+#####################
+# Install HAProxy
+echo Installing HAProxy
+apt-get install haproxy
+cp /vagrant/etc/haproxy.cfg /etc/haproxy/haproxy.cfg
+service haproxy restart
 
 #####################
 # Install REDIS
@@ -44,6 +52,9 @@ apt-get -qq -y install rabbitmq-server > /dev/null
 # rabbitmq_mqtt rabbitmq_stomp rabbitmq_management  rabbitmq_management_agent rabbitmq_management_visualiser rabbitmq_federation rabbitmq_federation_management sockjs
 
 echo "[{rabbit, [{loopback_users, []}]}]." > /etc/rabbitmq/rabbitmq.config
+
+# Setting up High Availability
+rabbitmqctl set_policy ha-all "" '{"ha-mode":"all","ha-sync-mode":"automatic"}'
 
 /etc/init.d/rabbitmq-server restart
 
